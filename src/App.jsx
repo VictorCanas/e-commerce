@@ -1,17 +1,29 @@
-//Here we import 
-import './App.css'
+//Aqui importamos cosas exeternas o npm packages
 
-//This is area is for javascript
+import PrimerComponente from "./components/PrimerComponente";
 
 
-function App() {
-  //Here we put everything in JSX format
+//En esta area podemos poner javascript
+
+
+const App = () => {
+
+  const nombre = "Coderhouse";
+
+  //Abajo de return ponemos todo en formato JSX 
   return (
+    //Aqui tenemos un fragment con <> y </>
+    <>
       <div>
-       <h1>Welcome to React  with Vite</h1>
-    </div>
+       <h1>Comision 51100</h1>
+       {/* Aqui ponemos nombre dentro de una llave */}
+       <article>{nombre}</article> 
+       {/* Aqui importamos un componente externo dentro de app.jsx */}
+       <PrimerComponente/>
+       </div>
+    </>
   )
 }
 
-//Here we export
+//Aqui exportamos el componente
 export default App
