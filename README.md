@@ -1,3 +1,3 @@
 # e-commerce
 
-# Este repositorio explica la estructure de un proyecto usando vite y react. 
+## Este repositorio explica la estructura de un proyecto usando vite y react. 
