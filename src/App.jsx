@@ -1,29 +1,53 @@
-//Aqui importamos cosas exeternas o npm packages
-
-import PrimerComponente from "./components/PrimerComponente";
-
-
-//En esta area podemos poner javascript
-
+import { useState } from "react";
+import React from "react";
+import ComponenteA from "./components/ComponenteA";
 
 const App = () => {
+  //TODO:PROPIDEADES-PROPS-EJEMPLO
+  //Aqui creamos una funcion que muestra en la consola
+  const comision = () => {
+    console.log("Comision 51100");
+  };
 
-  const nombre = "Coderhouse";
+  //Ejemplo de pasar children a padre - creo una funcion que resibe parametro valor
+  const tomarValor = (valor) => {
+    //El valor es 456
+    console.log("el valor es: " + valor);
+  };
 
-  //Abajo de return ponemos todo en formato JSX 
+  //TODO:USANDO HOOKS
+  //Coder es el valor inicliar
+  const [nombre, setNombre] = useState("Coder"); //Dentro de usestate se puede pasar un numer, array,string
+  const [cantidad, setCantidad] = useState(0);
+
+  console.log(nombre);
+  // numero => variable
+  //setNumero => funcon modificadora
+  //setNmobre("House");
+
+  const sumando = () => {
+    setCantidad(cantidad + 1);
+  };
+
   return (
-    //Aqui tenemos un fragment con <> y </>
     <>
+      <ComponenteA
+        numero={4}
+        comision={comision}
+        esAlumno={true}
+        tomarValor={tomarValor}
+      />
       <div>
-       <h1>Comision 51100</h1>
-       {/* Aqui ponemos nombre dentro de una llave */}
-       <article>{nombre}</article> 
-       {/* Aqui importamos un componente externo dentro de app.jsx */}
-       <PrimerComponente/>
-       </div>
+        <h3>{nombre}</h3>
+        <button onClick={() => setNombre("House")}>Cambiar</button>
+        <h2>{cantidad}</h2>
+        <button onClick={sumando}>Agregan con funcion </button>
+        <button onClick={() => setCantidad(cantidad + 1)}>
+          Agregando adentro
+        </button>
+      </div>
     </>
-  )
-}
+  );
+};
 
-//Aqui exportamos el componente
-export default App
+export default App;
