@@ -16,13 +16,13 @@ const App = () => {
   };
 
   //TODO:USANDO HOOKS
-  //Coder es el valor inicliar
-  const [nombre, setNombre] = useState("Coder"); //Dentro de usestate se puede pasar un numer, array,string
+  //Coder es el valor incial
+  const [nombre, setNombre] = useState("Coder"); //Dentro de usestate se puede pasar cualquier tipo de datos
   const [cantidad, setCantidad] = useState(0);
 
   console.log(nombre);
-  // numero => variable
-  //setNumero => funcon modificadora
+  //numero => variable
+  //setNumero => funcion modificadora
   //setNmobre("House");
 
   const sumando = () => {
