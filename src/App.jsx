@@ -11,7 +11,7 @@ const App = () => {
 
   //Ejemplo de pasar children a padre - creo una funcion que recibe parametro valor
   const tomarValor = (valor) => {
-    //El valor es 456
+    //El valor es 456 y viene de ComponenteA.jsx
     console.log("el valor es: " + valor);
   };
 
