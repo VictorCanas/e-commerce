@@ -9,7 +9,7 @@ const App = () => {
     console.log("Comision 51100");
   };
 
-  //Ejemplo de pasar children a padre - creo una funcion que resibe parametro valor
+  //Ejemplo de pasar children a padre - creo una funcion que recibe parametro valor
   const tomarValor = (valor) => {
     //El valor es 456
     console.log("el valor es: " + valor);
