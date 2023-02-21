@@ -16,7 +16,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="swadow-md w-full fixed top-0 left-0">
+    <div className="swadow-md w-full top-0 left-0">
       <div className="md:flex items-center justify-between bg-gray-900 text-white py-4 md:px-5 px-3">
         <div className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins]">
           <span className="text-3xl mr-1 pt-2">
