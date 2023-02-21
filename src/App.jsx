@@ -1,5 +1,6 @@
 //Aqui importamos cosas exeternas o npm packages
 import Navbar from "./components/Navbar";
+import ItemListContainer from "./components/ItemListContainer";
 import "./index.css";
 
 const App = () => {
@@ -8,7 +9,7 @@ const App = () => {
     //Aqui tenemos un fragment con <> y </>
     <>
       <Navbar />
-
+      <ItemListContainer greeting={"Bienvendios a mi tienda virtual"}/>
     </>
   );
 };
