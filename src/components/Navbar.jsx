@@ -1,13 +1,19 @@
 import React from "react";
+import { useState } from "react";
 
 const Navbar = () => {
-  let Enlaces = [
+
+  //Creando un array de objetos para los enlaces
+  const Enlaces = [
     { nombre: "HOME", Link: "/" },
     { nombre: "SERVICE", Link: "/" },
     { nombre: "ABOUT", Link: "/" },
     { nombre: "BLOG", Link: "/" },
     { nombre: "CONTACT", Link: "/" },
   ];
+
+  //Creando un useState para abrir y cerrar el menu
+  const[open, setOpen] = useState(false); 
 
   return (
     <div className="swadow-md w-full fixed top-0 left-0">
@@ -18,8 +24,8 @@ const Navbar = () => {
           </span>
           Mastermind Academy
         </div>
-        <div className="text-3xl absolute right-8 top-6 cursor pointer md:hidden">
-        <ion-icon name="menu-outline"></ion-icon>
+        <div onClick={()=>setOpen(!open)} className="text-3xl absolute right-8 top-6 cursor pointer md:hidden">
+        <ion-icon name={open ? "close":"menu"}></ion-icon>
         </div>
         <ul
           className="md:flex md:items-center md:pb-0 pb-12 absolute md:static  bg-gray-900 md:z-auto z-[-1]
