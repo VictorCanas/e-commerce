@@ -36,16 +36,18 @@ const Navbar = () => {
           }`}
         >
           {Enlaces.map((link) => (
-            <li key={link.nombre} className="md:ml-8 text-xl md:my-0 my-7 font-[Poppins]">
+            <li
+              key={link.nombre}
+              className="md:ml-8 text-xl md:my-0 my-7 font-[Poppins]"
+            >
               <a href={link.Link} className="hover:text-gray-400 duration-500">
                 {link.nombre}
               </a>
             </li>
           ))}
-            <CartWidget/>
+          <CartWidget />
         </ul>
       </div>
-    
     </div>
   );
 };

@@ -8,8 +8,7 @@ const App = () => {
     //Aqui tenemos un fragment con <> y </>
     <>
       <Navbar />
-      {/* Fondo oscuro para toda la pagina */}
-      <div className="bg-slate-300 w-full h-screen"></div>
+
     </>
   );
 };
