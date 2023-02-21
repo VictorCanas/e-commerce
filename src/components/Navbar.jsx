@@ -1,14 +1,15 @@
 import React from "react";
 import { useState } from "react";
+import CartWidget from "./CartWidget";
 
 const Navbar = () => {
   //Creando un array de objetos para los enlaces
   const Enlaces = [
-    { nombre: "HOME", Link: "/" },
-    { nombre: "SERVICE", Link: "/" },
-    { nombre: "ABOUT", Link: "/" },
-    { nombre: "BLOG", Link: "/" },
-    { nombre: "CONTACT", Link: "/" },
+    { nombre: "Health", Link: "/" },
+    { nombre: "Business", Link: "/" },
+    { nombre: "Coaching", Link: "/" },
+    { nombre: "Mindset", Link: "/" },
+    { nombre: "Finance", Link: "/" },
   ];
 
   //Creando un useState para abrir y cerrar el menu
@@ -35,14 +36,16 @@ const Navbar = () => {
           }`}
         >
           {Enlaces.map((link) => (
-            <li key={link.nombre} className="md:ml-8 text-xl md:my-0 my-7">
+            <li key={link.nombre} className="md:ml-8 text-xl md:my-0 my-7 font-[Poppins]">
               <a href={link.Link} className="hover:text-gray-400 duration-500">
                 {link.nombre}
               </a>
             </li>
           ))}
+            <CartWidget/>
         </ul>
       </div>
+    
     </div>
   );
 };
