@@ -1,16 +1,22 @@
 //Aqui importamos cosas exeternas o npm packages
-import Navbar from "./components/Navbar";
-import ItemListContainer from "./components/ItemListContainer";
+import { BrowserRouter, Routers, Route } from "react-router-dom";
+import About from "./About";
+import Footer from "./Footer";
+import Home from "./Home";
+import NavBar from "./NavBar";
 import "./index.css";
 
 const App = () => {
   //Abajo de return ponemos todo en formato JSX
   return (
-    //Aqui tenemos un fragment con <> y </>
-    <>
-      <Navbar />
-      <ItemListContainer greeting={"Bienvendios a mi tienda virtual"}/>
-    </>
+    <BrowserRouter>
+      <NavBar />
+      <Routers>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/about" element={<About />} />
+      </Routers>
+      <Footer />
+    </BrowserRouter>
   );
 };
 
