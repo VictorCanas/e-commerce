@@ -1,5 +1,5 @@
-import NavBar from "./components/NavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NavBarAcademy from "./components/NavBarAcademy";
 import Footer from "./components/Footer";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
@@ -15,7 +15,7 @@ const App = () => {
   return (
     <ShoppingCartContext>
       <BrowserRouter>
-        <NavBar />
+        <NavBarAcademy />
 
         <Routes>
           <Route exact path="/" element={<Welcome />} />

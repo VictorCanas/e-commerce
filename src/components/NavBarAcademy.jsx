@@ -9,7 +9,7 @@ import { CartContext } from "../context/ShoppingCartContext";
 import Logout from "../page/Logout";
 import { FiHome, FiUser } from "react-icons/fi";
 
-function NavBar() {
+function NavBarAcademy() {
   const { isLogged } = useContext(CartContext);
   return (
     <Navbar bg="secondary" expand="sm">
@@ -58,4 +58,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default NavBarAcademy;
