@@ -1,5 +1,3 @@
-// El ItemCount va adentro del ItemDetail.jsx
-
 import Button from "react-bootstrap/Button";
 import { useContext, useState } from "react";
 import Swal from "sweetalert2";
