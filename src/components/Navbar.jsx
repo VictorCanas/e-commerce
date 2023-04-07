@@ -1,77 +1,61 @@
-import React from "react";
-import { useState } from "react";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../context/ShoppingCartContext";
+import Logout from "../page/Logout";
+import { FiHome, FiUser } from "react-icons/fi";
 
-const Navbar = () => {
-  //Creando un array de objetos para los enlaces
-  const Enlaces = [
-    { nombre: "Academy", Link: "/" },
-    { nombre: "Contact", Link: "/Contact" },
-  ];
-
-  const Categorias = [
-    { nombre: "Health", Link: "category/health" },
-    { nombre: "Business", Link: "/" },
-    { nombre: "Coaching", Link: "/" },
-    { nombre: "Mindset", Link: "/" },
-  ];
-
-  //Creando un useState para abrir y cerrar el menu
-  const [open, setOpen] = useState(false);
-
+function NavBar() {
+  const { isLogged } = useContext(CartContext);
   return (
-    <div className="swadow-md w-full top-0 left-0">
-      <div className="bg-gray-900 text-white md:flex items-center justify-between px-4 py-4 md:px-10 lg:px-16">
-        <div className="cursor-pointer flex items-center font-bold font-[Poppins] text-2xl">
-          <span className="text-3xl mr-1 pt-2">
-            <ion-icon name="rocket-outline"></ion-icon>
-          </span>
-          Mastermind Academy
-        </div>
-        <div
-          onClick={() => setOpen(!open)}
-          className="cursor-pointer text-3xl absolute right-8 top-6 z-20 md:hidden"
-        >
-          <ion-icon name={open ? "close" : "menu"}></ion-icon>
-        </div>
-        <ul
-          className={`absolute md:static md:z-auto w-full md:w-auto left-0 md:flex md:items-center bg-gray-900 transition-all duration-500 ease-in ${
-            open ? "top-20" : "top-[-490px]"
-          }`}
-        >
-          {Enlaces.map((link) => (
-            <li
-              key={link.nombre}
-              className="my-3 md:mx-6 text-xl font-[Poppins] hover:text-gray-400 duration-500"
+    <Navbar bg="secondary" expand="sm">
+      <Container>
+        <Navbar.Brand as={Link} to={"/"}>
+          <FiHome size="2rem" /> Mastermind Academy
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to={"/catalogue"}>
+              Courses
+            </Nav.Link>
+            <NavDropdown
+              className="menu-list"
+              title="Categories"
+              id="basic-nav-dropdown"
             >
-              <a href={link.Link}>{link.nombre}</a>
-            </li>
-          ))}
-          <li className="relative group my-3 md:mx-6 text-xl font-[Poppins] hover:text-gray-400 duration-500">
-            <a
-              href=""
-              onMouseEnter={() => setOpen(true)}
-            >
-              Categories
-              <ion-icon name="chevron-down-outline" className="ml-1"></ion-icon>
-            </a>
-            <ul
-              className={`${
-                open ? "block" : "hidden"
-              } absolute mt-2 py-2 bg-white rounded-lg shadow-lg`}
-            >
-              {Categorias.map((categoria) => (
-                <li key={categoria.nombre} className="px-2 py-">
-                  <a href={categoria.Link} onClick={() => setOpen(true)}>{categoria.nombre}</a>
-                </li>
-              ))}
-            </ul>
-          </li>
-          <CartWidget />
-        </ul>
+              <NavDropdown.Item as={Link} to={`/category/${"Health"}`}>
+                Health
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to={`/category/${"Education"}`}>
+                Education
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to={`/category/${"Coding"}`}>
+                Coding
+              </NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link as={Link} to={"/Contact"}>
+              Contact
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+      <div className="icon-container">
+        {isLogged ? (
+          <Logout />
+        ) : (
+          <Nav.Link className="logInButton" as={Link} to={"/login"}>
+            <FiUser size="2rem" />
+          </Nav.Link>
+        )}
+        <CartWidget />
       </div>
-    </div>
+    </Navbar>
   );
-};
+}
 
-export default Navbar;
+export default NavBar;

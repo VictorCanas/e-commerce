@@ -1,9 +1,28 @@
-import React from 'react'
+import ItemDetail from "./ItemDetail";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { useEffect, useState } from "react";
 
 const ItemDetailContainer = () => {
-  return (
-    <div>ItemDetailContainer</div>
-  )
-}
+  const [products, setProducts] = useState([]);
 
-export default ItemDetailContainer
+  useEffect(() => {
+    const db = getFirestore();
+
+    const itemsCollection = collection(db, "academy");
+    getDocs(itemsCollection).then((snapshot) => {
+      const docs = snapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setProducts(docs);
+    });
+  }, []);
+
+  return (
+    <div className="itemDetailContainer">
+      <ItemDetail data={products} />
+    </div>
+  );
+};
+
+export default ItemDetailContainer;
