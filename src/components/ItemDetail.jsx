@@ -22,29 +22,29 @@ const ItemDetail = ({ data }) => {
     });
   }, []);
 
-  const dataFilter = data.filter((dato) => dato.id == id);
+  const dataFilter = data.filter((item) => item.id == id);
 
   return (
     <>
-      {dataFilter.map((dato) => (
-        <div key={dato.id}>
+      {dataFilter.map((item) => (
+        <div key={item.id}>
           <Card className="itemContainer">
-            <Card.Img className="itemImage" variant="top" src={dato.img} />
+            <Card.Img className="itemImage" variant="top" src={item.img} />
             <Card.Body>
-              <Card.Title className="itemTitulo">{dato.name}</Card.Title>
+              <Card.Title className="itemTitulo">{item.name}</Card.Title>
               <Card.Text className="itemCategory">
-                Category: {dato.category}
+                Category: {item.category}
               </Card.Text>
               <Card.Text className="itemPrice">
-                {currencyFormat(dato.price)}
+                {currencyFormat(item.price)}
               </Card.Text>
               <Card.Footer className="itemFooter">
                 <ItemCount
-                  stock={dato.stock}
-                  id={dato.id}
-                  addItem={dato.addItem}
-                  price={dato.price}
-                  name={dato.name}
+                  stock={item.stock}
+                  id={item.id}
+                  addItem={item.addItem}
+                  price={item.price}
+                  name={item.name}
                 />
               </Card.Footer>
             </Card.Body>
